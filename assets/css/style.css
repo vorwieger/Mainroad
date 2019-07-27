@@ -1,4 +1,11 @@
-{{- $highlightColor := .Site.Params.highlightColor | default "#e22d30" -}}
+{{- $bodyBackgroundColor := .Site.Params.bodyBackgroundColor | default "{{ $bodyBackgroundColor }}" -}}
+{{- $backgroundColor := .Site.Params.backgroundColor | default "{{ $backgroundColor }}" -}}
+{{- $textColor := .Site.Params.textColor | default "{{ $textColor }}" -}}
+{{- $lightTextColor := .Site.Params.lightTextColor | default "{{ $lightTextColor }}" -}}
+{{- $highlightColor := .Site.Params.highlightColor | default "{{ $highlightColor }}" -}}
+{{- $buttonTextColor := .Site.Params.buttonTextColor | default "{{ $buttonTextColor }}" -}}
+{{- $buttonBackgroundColor := .Site.Params.buttonBackgroundColor | default "{{ $buttonBackgroundColor }}" -}}
+{{- $borderColor := .Site.Params.borderColor | default "{{ $borderColor }}" -}}
 
 *,
 *::before,
@@ -38,6 +45,7 @@ section {
 
 /* Structure */
 html {
+	color: {{ $textColor }};
 	font-size: 100%;
 	-ms-text-size-adjust: none;
 	-webkit-text-size-adjust: none;
@@ -50,7 +58,7 @@ body {
 	font-size: .875rem;
 	line-height: 1.6;
 	word-wrap: break-word;
-	background: #f7f7f7;
+	background: {{ $bodyBackgroundColor }};
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -68,7 +76,7 @@ body {
 
 .wrapper {
 	padding: 25px;
-	background: #fff;
+	background: {{ $backgroundColor }};
 }
 
 .flex {
@@ -129,13 +137,13 @@ textarea {
 .btn {
 	padding: 5px 10px;
 	font-weight: 700;
-	color: #fff;
+	color: {{ $buttonTextColor }};
 	white-space: pre-line;
-	background: #2a2a2a;
+	background: {{ $buttonBackgroundColor }};
 }
 
 .btn:hover {
-	color: #fff;
+	color: {{ $buttonTextColor }};
 	background: {{ $highlightColor }};
 }
 
@@ -156,7 +164,7 @@ h6 {
 	margin: 0 0 1.25rem;
 	font-weight: 700;
 	line-height: 1.3;
-	color: #000;
+	color: {{ $textColor }};
 }
 
 h1 {
@@ -190,7 +198,7 @@ h6 {
 }
 
 a {
-	color: #000;
+	color: {{ $textColor }};
 	text-decoration: none;
 }
 
@@ -201,7 +209,7 @@ a:hover {
 hr {
 	margin: 0 0 20px;
 	border: 0;
-	border-top: 1px solid #dadada;
+	border-top: 1px solid {{ $borderColor }};
 }
 
 p {
@@ -244,7 +252,7 @@ figure {
 figcaption {
 	margin-top: 4px;
 	margin-top: .25rem;
-	color: #666;
+	color: {{ $lightTextColor}};
 }
 
 figcaption h4 {
@@ -262,13 +270,12 @@ samp {
 
 pre,
 code {
-	background-color: #f5f5f5;
-	border: 1px solid #ebebeb;
+	background-color: {{ $bodyBackgroundColor }};
+	border: 1px solid {{ $borderColor }};
 }
 
 code {
 	padding: 0 5px;
-	color: #c33;
 }
 
 pre {
@@ -278,7 +285,7 @@ pre {
 	margin-bottom: 20px;
 	margin-bottom: 1.25rem;
 	overflow: auto;
-	color: #000;
+	color: {{ $textColor }};
 }
 
 pre code {
@@ -291,8 +298,8 @@ pre code {
 
 kbd {
 	padding: 2px 3px;
-	color: #fff;
-	background-color: #2a2a2a;
+	color: {{ $backgroundColor }};
+	background-color: {{ $buttonBackgroundColor }};
 }
 
 blockquote {
@@ -330,7 +337,7 @@ sub {
 abbr[title] {
 	text-decoration: none;
 	cursor: help;
-	border-bottom: 1px dotted #000;
+	border-bottom: 1px dotted {{ $textColor }};
 }
 
 q {
@@ -370,17 +377,17 @@ select {
 .warning {
 	padding: 20px 10px;
 	text-align: center;
-	border: 1px solid #ddd;
+	border: 1px solid {{ $borderColor }};
 }
 
 .warning__icon {
 	margin-bottom: 20px;
-	fill: #ddd;
+	fill: {{ $buttonTextColor }};
 }
 
 /* Header */
 .header {
-	background: #fff;
+	background: {{ $backgroundColor }};
 }
 
 .logo {
@@ -397,7 +404,7 @@ select {
 	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1;
-	color: #000;
+	color: {{ $textColor }};
 }
 
 .logo__tagline {
@@ -409,7 +416,7 @@ select {
 	font-weight: 700;
 	line-height: 1;
 	color: {{ $highlightColor }};
-	border-top: 1px solid #ebebeb;
+	border-top: 1px solid {{ $borderColor }};
 }
 
 .divider {
@@ -429,8 +436,8 @@ select {
 	width: 100%;
 	padding: 0;
 	font: inherit;
-	color: #fff;
-	background: #2a2a2a;
+	color: {{ $buttonTextColor }};
+	background: {{ $buttonBackgroundColor }};
 	border: 0;
 	outline: 0;
 }
@@ -470,7 +477,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .menu__list {
 	list-style: none;
-	background: #2a2a2a;
+	background: {{ $buttonBackgroundColor }};
 }
 
 .menu__item:hover {
@@ -490,12 +497,12 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding: 10px 15px;
 	padding: .625rem .9375rem;
 	font-weight: 700;
-	color: #fff;
+	color: {{ $buttonTextColor }};
 	text-transform: uppercase;
 }
 
 .menu__link:hover {
-	color: #fff;
+	color: {{ $buttonTextColor }};
 }
 
 .js .menu__list {
@@ -573,7 +580,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .meta,
 .meta a {
-	color: #666;
+	color: {{ $lightTextColor}};
 }
 
 .meta a:hover {
@@ -592,7 +599,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 .meta__icon {
 	margin-right: 5px;
 	vertical-align: middle;
-	fill: #c4c4c4;
+	fill: {{ $lightTextColor }};
 }
 
 .meta__text {
@@ -607,8 +614,8 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding: 5px 0;
 	margin-top: 10px;
 	margin-top: .625rem;
-	border-top: 1px dotted #ebebeb;
-	border-bottom: 1px dotted #ebebeb;
+	border-top: 1px dotted {{ $borderColor }};
+	border-bottom: 1px dotted {{ $borderColor }};
 }
 
 .post__lead {
@@ -702,7 +709,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	font-size: 12px;
 	font-size: .75rem;
 	line-height: 1;
-	color: #fff;
+	color: {{ $backgroundColor }};
 }
 
 .tags__list {
@@ -714,7 +721,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	margin: 0 6px 6px 0;
 	margin: 0 .375rem .375rem 0;
 	text-transform: uppercase;
-	background: #2a2a2a;
+	background: {{ $buttonBackgroundColor }};
 }
 
 .tags__item:hover {
@@ -734,7 +741,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding: 8px;
 	margin-right: 6px;
 	background: {{ $highlightColor }};
-	fill: #fff;
+	fill: {{ $backgroundColor }};
 }
 
 /* Table of Contents */
@@ -742,8 +749,8 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	margin-bottom: 20px;
 	font-weight: 700;
 	color: #7a8288;
-	background: #fff;
-	border-color: #ebebeb;
+	background: {{ $backgroundColor }};
+	border-color: {{ $borderColor }};
 	border-style: solid;
 	border-top-width: 1px;
 	border-right-width: 1px;
@@ -753,14 +760,14 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 
 .toc__title {
 	padding: 5px 10px;
-	color: #fff;
+	color: {{ $backgroundColor }};
 	text-transform: uppercase;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
-	background: #2a2a2a;
+	background: {{ $buttonBackgroundColor }};
 }
 
 .toc__menu ul {
@@ -792,7 +799,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	display: block;
 	padding: 5px 10px;
 	color: {{ $highlightColor }};
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid {{ $borderColor }};
 }
 
 .toc__menu a:hover {
@@ -804,15 +811,15 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding: 25px 0;
 	margin-bottom: 25px;
 	line-height: 1.5;
-	border-top: 1px solid #ebebeb;
-	border-bottom: 1px solid #ebebeb;
+	border-top: 1px solid {{ $borderColor }};
+	border-bottom: 1px solid {{ $borderColor }};
 }
 
 .authorbox__avatar {
 	float: left;
 	padding: 3px;
 	margin: 0 25px 0 0;
-	border: 1px solid #ebebeb;
+	border: 1px solid {{ $borderColor }};
 }
 
 .authorbox__header {
@@ -831,7 +838,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding-bottom: 1.25rem;
 	margin-bottom: 20px;
 	margin-bottom: 1.25rem;
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid {{ $borderColor }};
 }
 
 .list__header {
@@ -867,13 +874,13 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	display: inline-block;
 	padding: 10px 15px;
 	font-weight: 700;
-	color: #000;
-	background: #f5f5f5;
+	color: {{ $textColor }};
+	background: {{ $bodyBackgroundColor }};
 }
 
 .pagination__item:hover,
 .pagination__item--current {
-	color: #fff;
+	color: {{ $backgroundColor }};
 	background: {{ $highlightColor }};
 }
 
@@ -884,7 +891,7 @@ button:not(:-moz-focusring):focus > .menu__btn-title {
 	padding-top: 25px;
 	padding-bottom: 25px;
 	margin-bottom: 25px;
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px solid {{ $borderColor }};
 }
 
 .post-nav__caption {
@@ -939,15 +946,15 @@ table {
 	margin-bottom: 1.25rem;
 	border-spacing: 0;
 	border-collapse: collapse;
-	border-top: 1px solid #ebebeb;
-	border-left: 1px solid #ebebeb;
+	border-top: 1px solid {{ $borderColor }};
+	border-left: 1px solid {{ $borderColor }};
 }
 
 td,
 th {
 	padding: 5px 10px;
-	border-right: 1px solid #ebebeb;
-	border-bottom: 1px solid #ebebeb;
+	border-right: 1px solid {{ $borderColor }};
+	border-bottom: 1px solid {{ $borderColor }};
 }
 
 th {
@@ -959,8 +966,9 @@ input {
 	padding: 5px;
 	font-size: 12px;
 	vertical-align: middle;
-	background: #f5f5f5;
-	border: 1px solid #ebebeb;
+	color: {{ $textColor }};
+	background: {{ $bodyBackgroundColor }};
+	border: 1px solid {{ $borderColor }};
 	transition: all .25s ease-in-out;
 }
 
@@ -976,7 +984,7 @@ input[type=email]:hover,
 input[type=tel]:hover,
 input[type=url]:hover,
 textarea:hover {
-	border: 1px solid #aaa;
+	border: 1px solid {{ $borderColor }};
 }
 
 input[type=submit],
@@ -985,10 +993,10 @@ input[type=reset] {
 	min-width: 150px;
 	padding: 10px 15px;
 	font-weight: 700;
-	color: #fff;
+	color: {{ $backgroundColor }};
 	text-transform: uppercase;
 	cursor: pointer;
-	background: #2a2a2a;
+	background: {{ $buttonBackgroundColor }};
 	border: 0;
 	transition: all .1s linear;
 	-webkit-appearance: none;
@@ -1005,7 +1013,8 @@ textarea {
 	overflow: auto;
 	line-height: 1.5;
 	resize: vertical;
-	background: #f5f5f5;
+	color: {{ $textColor }};
+	background: {{ $bodyBackgroundColor }};
 	border: 1px solid rgba(0, 0, 0, .1);
 }
 
@@ -1031,7 +1040,7 @@ textarea {
 .widget__item {
 	display: block;
 	padding: 5px 0;
-	border-bottom: 1px dotted #ebebeb;
+	border-bottom: 1px dotted {{ $borderColor }};
 }
 
 .widget__item:first-child {
@@ -1043,7 +1052,7 @@ textarea {
 	display: block;
 	padding: 5%;
 	margin: 0 auto;
-	background: #f5f5f5;
+	background: {{ $bodyBackgroundColor }};
 }
 
 .widget-search__form .widget-search__submit {
@@ -1058,8 +1067,8 @@ textarea {
 	margin: 0 auto;
 	font-size: 11px;
 	cursor: pointer;
-	background: #fff;
-	border: 1px solid #ebebeb;
+	background: {{ $backgroundColor }};
+	border: 1px solid {{ $borderColor }};
 	border-radius: 0;
 	outline-offset: -2px;
 	transition: none;
@@ -1086,7 +1095,7 @@ textarea {
 .widget-social__link-icon {
 	margin: 0 5px 0 0;
 	vertical-align: middle;
-	fill: #fff;
+	fill: {{ $buttonTextColor }};
 }
 
 /* Tags Widget */
@@ -1103,7 +1112,7 @@ textarea {
 }
 
 .widget-languages__link:hover .widget-languages__link-btn {
-	color: #fff;
+	color: {{ $backgroundColor }};
 	background: {{ $highlightColor }};
 }
 
@@ -1116,9 +1125,8 @@ textarea {
 	padding: 10px 25px;
 	font-size: 12px;
 	font-size: .75rem;
-	color: #999;
-	background: #2a2a2a;
-	border-top: 3px solid #999;
+	color: {{ $buttonTextColor }};
+	background: {{ $buttonBackgroundColor }};
 }
 
 .footer__container {
@@ -1134,7 +1142,8 @@ textarea {
 }
 
 .footer a {
-	color: #fff;
+	font-weight: bold;
+	color: {{ $buttonTextColor }};
 }
 
 .footer a:hover {
